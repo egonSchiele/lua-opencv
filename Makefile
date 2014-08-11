@@ -1,5 +1,5 @@
 CV_LIB=-lopencv_core -lopencv_imgproc -lopencv_highgui
-LUA_LIB=-llua5.2
+LUA_LIB=-llua
 LUA_MAC_LIB=-llua
 
 .PHONY: all linux mac

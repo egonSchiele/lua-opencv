@@ -113,7 +113,7 @@ load_image(lua_State *L)
 			{ NULL, NULL },
 		};
 
-		luaL_newlib(L,l);
+		luaL_register(L, NULL, l);
         lua_setfield(L, -2, "__index");
 	}
 
@@ -125,14 +125,14 @@ load_image(lua_State *L)
 
 extern "C" {
     int luaopen_opencv(lua_State *L) {
-        luaL_checkversion(L);
+        //luaL_checkversion(L);
 
         luaL_Reg l[] = {
             { "load_image", load_image },
             { NULL, NULL}
         };
 
-        luaL_newlib(L, l);
+        luaL_register(L, NULL, l);
 
         lua_pushnumber(L, CV_LOAD_IMAGE_ANYDEPTH);
         lua_setfield(L,-2,"load_image_anydepth");
