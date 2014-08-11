@@ -114,6 +114,7 @@ load_image(lua_State *L)
 		};
 
 		luaL_register(L, NULL, l);
+lua_pushvalue(L, -1);
         lua_setfield(L, -2, "__index");
 	}
 
@@ -132,7 +133,7 @@ extern "C" {
             { NULL, NULL}
         };
 
-        luaL_register(L, NULL, l);
+        luaL_register(L, "opencv", l);
 
         lua_pushnumber(L, CV_LOAD_IMAGE_ANYDEPTH);
         lua_setfield(L,-2,"load_image_anydepth");
